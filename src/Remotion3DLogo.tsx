@@ -66,13 +66,13 @@ const ExtrudedSVG: React.FC = () => {
   });
 
   return (
-    <group scale={[scale * 0.015, -scale * 0.015, scale * 0.015]} rotation={[rotationX, rotationY, 0]}>
+    <group scale={[scale * 0.008, -scale * 0.008, scale * 0.008]} rotation={[rotationX, rotationY, 0]}>
       <mesh geometry={geometry}>
-        <meshStandardMaterial
-          color="#b8b8b8"
-          metalness={1}
-          roughness={0.15}
-          envMapIntensity={1.5}
+        <meshPhongMaterial
+          color="#ffffff"
+          specular="#ffffff"
+          shininess={100}
+          reflectivity={1}
         />
       </mesh>
     </group>

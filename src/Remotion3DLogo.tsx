@@ -89,16 +89,19 @@ export const Remotion3DLogo: React.FC = () => {
   });
 
   return (
-    <div style={{ backgroundColor: "#1a1a2e" }}>
+    <div style={{ backgroundColor: "#0a0a1a" }}>
       <ThreeCanvas width={width} height={height}>
         {/* Camera positioning */}
         <perspectiveCamera position={[0, 0, 15]} />
 
-        {/* Environment lighting for metallic reflections */}
-        <ambientLight intensity={0.3} />
-        <directionalLight position={[lightX, 5, 10]} intensity={1.5} color="#ffffff" />
-        <directionalLight position={[-5, -5, 5]} intensity={0.8} color="#4a9eff" />
-        <pointLight position={[0, 10, 0]} intensity={0.5} color="#ff6b6b" />
+        {/* Bright lighting for silver appearance */}
+        <ambientLight intensity={1.5} />
+        <hemisphereLight args={["#ffffff", "#444444", 1.2]} />
+        <directionalLight position={[lightX, 5, 10]} intensity={3} color="#ffffff" />
+        <directionalLight position={[-10, 5, 10]} intensity={2} color="#ffffff" />
+        <directionalLight position={[0, -5, 10]} intensity={1.5} color="#ffffff" />
+        <pointLight position={[5, 5, 5]} intensity={2} color="#ffffff" />
+        <pointLight position={[-5, 5, 5]} intensity={2} color="#ffffff" />
 
         {/* The 3D extruded SVG */}
         <ExtrudedSVG />

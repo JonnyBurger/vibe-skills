@@ -22,7 +22,8 @@ export const RemotionTweet: React.FC = () => {
           left: 24,
           width: 1131,
           height: 733,
-          borderRadius: 12,
+          borderRadius: 30,
+          border: "2px solid rgba(0, 0, 0, 0.1)",
         }}
       />
     </AbsoluteFill>

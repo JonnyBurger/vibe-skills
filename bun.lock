@@ -6,6 +6,7 @@
       "name": "vibe-skills",
       "dependencies": {
         "@remotion/cli": "4.0.408",
+        "@remotion/media": "4.0.408",
         "@remotion/tailwind-v4": "4.0.408",
         "react": "19.2.3",
         "react-dom": "19.2.3",
@@ -226,6 +227,8 @@
     "@remotion/eslint-config-flat": ["@remotion/eslint-config-flat@4.0.408", "", { "dependencies": { "typescript-eslint": "8.21.0" }, "peerDependencies": { "eslint": ">=9" } }, "sha512-iQ/Nm2UJhutW4cQrvv6tV//Hr9ZTuLzjpXOJF0ovefu/yHgzjenZ0ItVSY/889BzPaEwqhb0G6Ro5z42hRb2RQ=="],
 
     "@remotion/licensing": ["@remotion/licensing@4.0.408", "", {}, "sha512-N+mFoApL+vd74FbK/AB34y4ktL3VM9uJE+ZUuc19yzah1CdhOTKzAPxbpB8NNwEa+4fjvy+XU/TpfWzurUjORA=="],
+
+    "@remotion/media": ["@remotion/media@4.0.408", "", { "dependencies": { "mediabunny": "1.29.0", "remotion": "4.0.408" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-I+RUW0N+qjADyV7kcPrGQk5nFwJYkOyRIIROe+dNLYJIKf7NpqMYf4pR0JQVv1vrEOEfBeqOwUg9XpIyP8z1/A=="],
 
     "@remotion/media-parser": ["@remotion/media-parser@4.0.408", "", {}, "sha512-ecUsSsoiQwB5tf5958zPPLNERqASWhYW0FjK8o2CJ4z6+B590eIbD4Yh1nKcjjIQAsXS8QOcUqEeNdX58x3KYQ=="],
 

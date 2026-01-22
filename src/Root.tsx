@@ -17,7 +17,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="RemotionTweet"
         component={RemotionTweet}
-        durationInFrames={90}
+        durationInFrames={240}
         fps={30}
         width={1178}
         height={1754}

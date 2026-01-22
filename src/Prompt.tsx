@@ -1,12 +1,16 @@
-import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { Thinking } from "./Thinking";
 
-const CHAR_FRAMES = 2;
+const TYPING_DURATION_SECONDS = 2;
+const TYPING_DELAY_SECONDS = 0.5;
+const THINKING_FADE_SECONDS = 0.15;
 const CURSOR_BLINK_FRAMES = 16;
 const FONT_SIZE = 38;
 const CHAR_WIDTH = 23; // approximate monospace character width at 38px
-const CONTENT_WIDTH = 1200 - 56 * 2; // width minus horizontal padding
+const BOX_WIDTH = 1300;
+const CONTENT_WIDTH = BOX_WIDTH - 56 * 2; // width minus horizontal padding
 const LINE_HEIGHT = 50;
+const POSTERIZE_FRAMES = 3;
 
 export type PromptProps = {
   title: string;
@@ -37,11 +41,36 @@ const Cursor: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
-  const frame = useCurrentFrame();
+  const rawFrame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const frame = Math.floor(rawFrame / POSTERIZE_FRAMES) * POSTERIZE_FRAMES;
 
-  const typedChars = Math.min(title.length, Math.floor(frame / CHAR_FRAMES));
+  const delayFrames = TYPING_DELAY_SECONDS * fps;
+  const typingFrames = TYPING_DURATION_SECONDS * fps;
+  const framesPerChar = typingFrames / title.length;
+  const typingFrame = Math.max(0, frame - delayFrames);
+  const typedChars = Math.min(title.length, Math.floor(typingFrame / framesPerChar));
   const typedText = title.slice(0, typedChars);
   const isTypingComplete = typedChars >= title.length;
+
+  const typingEndFrame = delayFrames + typingFrames;
+  const thinkingFadeFrames = THINKING_FADE_SECONDS * fps;
+  const thinkingOpacity = interpolate(
+    frame,
+    [typingEndFrame, typingEndFrame + thinkingFadeFrames],
+    [0, 1],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.ease) }
+  );
+
+  const enterProgress = spring({
+    frame,
+    fps,
+    config: {
+      damping: 200,
+    },
+  });
+  const translateY = interpolate(enterProgress, [0, 1], [400, 0]);
+  const scale = interpolate(enterProgress, [0, 1], [0.9, 1]);
 
   // Calculate height based on full title (so it doesn't change while typing)
   const fullTextWithPrefix = "❯ " + title;
@@ -66,9 +95,10 @@ export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
           padding: "32px 56px",
           boxShadow:
             "0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2)",
-          width: 1200,
+          width: BOX_WIDTH,
           height: totalHeight,
           textAlign: "left",
+          transform: `translateY(${translateY}px) scale(${scale})`,
         }}
       >
         <span
@@ -89,7 +119,9 @@ export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
             marginTop: 24,
           }}
         />
-        {isTypingComplete && <Thinking index={thinkingIndex} />}
+        <div style={{ opacity: thinkingOpacity }}>
+          <Thinking index={thinkingIndex} />
+        </div>
       </div>
     </AbsoluteFill>
   );

@@ -13,7 +13,7 @@ export const Thinking: React.FC<ThinkingProps> = ({ index }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
-  const text = MESSAGES[index % MESSAGES.length] + "...";
+  const text = MESSAGES[index % MESSAGES.length] + "…";
 
   const framesPerChar = Math.round((150 / 1000) * fps);
   const spinnerIndex = Math.floor(frame / framesPerChar) % SPINNER_CHARS.length;

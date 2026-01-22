@@ -3,7 +3,7 @@ import { Video } from "@remotion/media";
 import { visualControl } from "@remotion/studio";
 
 export const RemotionTweet: React.FC = () => {
-  const top = visualControl("video-top", 446);
+  const top = visualControl("video-top", 734);
 
   return (
     <AbsoluteFill>

@@ -4,28 +4,29 @@ import { MyComposition } from "./Composition";
 import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
-import { getMediaMetadata } from "./get-media-metadata";
 
-const VIDEO_FILES = [
-  "IMG_6898.MOV",
-  "IMG_6899.MOV",
-  "IMG_6901.MOV",
-  "IMG_6900.MOV",
-  "IMG_6896.MOV",
+const VIDEO_DATA = [
+  { file: "IMG_6898.MOV", trimStart: 3.24, trimEnd: 13.44 },
+  { file: "IMG_6899.MOV", trimStart: 1.10, trimEnd: 7.47 },
+  { file: "IMG_6901.MOV", trimStart: 4.64, trimEnd: 19.08 },
+  { file: "IMG_6900.MOV", trimStart: 1.05, trimEnd: 5.12 },
+  { file: "IMG_6896.MOV", trimStart: 1.29, trimEnd: 4.08 },
 ];
 
 const calculateVideoSequenceMetadata: CalculateMetadataFunction<
   VideoSequenceProps
 > = async () => {
   const fps = 30;
-  const videoSources = VIDEO_FILES.map((file) => staticFile(file));
-  const metadataPromises = videoSources.map((src) => getMediaMetadata(src));
-  const allMetadata = await Promise.all(metadataPromises);
 
-  const videos = allMetadata.map((meta, index) => ({
-    src: videoSources[index],
-    durationInFrames: Math.ceil(meta.durationInSeconds * fps),
-  }));
+  const videos = VIDEO_DATA.map((data) => {
+    const trimmedDuration = data.trimEnd - data.trimStart;
+    return {
+      src: staticFile(data.file),
+      durationInFrames: Math.ceil(trimmedDuration * fps),
+      trimStartFrame: Math.floor(data.trimStart * fps),
+      trimEndFrame: Math.floor(data.trimEnd * fps),
+    };
+  });
 
   const totalDurationInFrames = videos.reduce(
     (sum, video) => sum + video.durationInFrames,

@@ -3,49 +3,49 @@
     "file": "IMG_6896.MOV",
     "captions": [
       {
-        "text": "This",
-        "startMs": 900,
-        "endMs": 420,
-        "timestampMs": 660,
-        "confidence": 0.977789
-      },
-      {
-        "text": "video",
+        "text": " video",
         "startMs": 420,
         "endMs": 1200,
         "timestampMs": 810,
         "confidence": 0.997501
       },
       {
-        "text": "was",
+        "text": " This",
+        "startMs": 900,
+        "endMs": 1000,
+        "timestampMs": 950,
+        "confidence": 0.977789
+      },
+      {
+        "text": " was",
         "startMs": 1200,
-        "endMs": 1290,
-        "timestampMs": 1245,
+        "endMs": 1300,
+        "timestampMs": 1250,
         "confidence": 0.939381
       },
       {
-        "text": "edited",
+        "text": " edited",
         "startMs": 1290,
         "endMs": 1880,
         "timestampMs": 1585,
         "confidence": 0.995727
       },
       {
-        "text": "only",
+        "text": " only",
         "startMs": 1880,
         "endMs": 2300,
         "timestampMs": 2090,
         "confidence": 0.976258
       },
       {
-        "text": "using",
+        "text": " using",
         "startMs": 2300,
         "endMs": 2820,
         "timestampMs": 2560,
         "confidence": 0.995406
       },
       {
-        "text": "Cl",
+        "text": " Cl",
         "startMs": 2820,
         "endMs": 3030,
         "timestampMs": 2925,
@@ -59,7 +59,7 @@
         "confidence": 0.13265
       },
       {
-        "text": "code",
+        "text": " code",
         "startMs": 3450,
         "endMs": 3920,
         "timestampMs": 3685,
@@ -68,8 +68,8 @@
       {
         "text": ".",
         "startMs": 3920,
-        "endMs": 3940,
-        "timestampMs": 3930,
+        "endMs": 4020,
+        "timestampMs": 3970,
         "confidence": 0.648357
       },
       {
@@ -82,22 +82,22 @@
       {
         "text": "ANK",
         "startMs": 6240,
-        "endMs": 6330,
-        "timestampMs": 6285,
+        "endMs": 6340,
+        "timestampMs": 6290,
         "confidence": 1
       },
       {
         "text": "AUD",
         "startMs": 6330,
-        "endMs": 6330,
-        "timestampMs": 6330,
+        "endMs": 6430,
+        "timestampMs": 6380,
         "confidence": 1
       },
       {
         "text": "IO",
         "startMs": 6330,
-        "endMs": 6330,
-        "timestampMs": 6330,
+        "endMs": 6430,
+        "timestampMs": 6380,
         "confidence": 1
       },
       {
@@ -114,28 +114,28 @@
     "file": "IMG_6898.MOV",
     "captions": [
       {
-        "text": "The",
+        "text": " The",
         "startMs": 0,
         "endMs": 790,
         "timestampMs": 395,
         "confidence": 0.827712
       },
       {
-        "text": "rules",
+        "text": " rules",
         "startMs": 790,
         "endMs": 2110,
         "timestampMs": 1450,
         "confidence": 0.997419
       },
       {
-        "text": "are",
+        "text": " are",
         "startMs": 2110,
         "endMs": 3230,
         "timestampMs": 2670,
         "confidence": 0.9987
       },
       {
-        "text": "simple",
+        "text": " simple",
         "startMs": 3230,
         "endMs": 4600,
         "timestampMs": 3915,
@@ -144,61 +144,61 @@
       {
         "text": ".",
         "startMs": 4600,
-        "endMs": 4650,
-        "timestampMs": 4625,
+        "endMs": 4700,
+        "timestampMs": 4650,
         "confidence": 0.67591
       },
       {
-        "text": "I",
+        "text": " I",
         "startMs": 4650,
-        "endMs": 4670,
-        "timestampMs": 4660,
+        "endMs": 4750,
+        "timestampMs": 4700,
         "confidence": 0.802806
       },
       {
-        "text": "need",
+        "text": " need",
         "startMs": 4670,
         "endMs": 4860,
         "timestampMs": 4765,
         "confidence": 0.9962
       },
       {
-        "text": "to",
+        "text": " to",
         "startMs": 4860,
         "endMs": 4960,
         "timestampMs": 4910,
         "confidence": 0.997619
       },
       {
-        "text": "edit",
+        "text": " edit",
         "startMs": 4960,
         "endMs": 5200,
         "timestampMs": 5080,
         "confidence": 0.997959
       },
       {
-        "text": "the",
+        "text": " the",
         "startMs": 5200,
         "endMs": 5360,
         "timestampMs": 5280,
         "confidence": 0.959805
       },
       {
-        "text": "video",
+        "text": " video",
         "startMs": 5360,
         "endMs": 5680,
         "timestampMs": 5520,
         "confidence": 0.939334
       },
       {
-        "text": "using",
+        "text": " using",
         "startMs": 5680,
         "endMs": 6000,
         "timestampMs": 5840,
         "confidence": 0.953395
       },
       {
-        "text": "Rem",
+        "text": " Rem",
         "startMs": 6000,
         "endMs": 6210,
         "timestampMs": 6105,
@@ -212,49 +212,49 @@
         "confidence": 0.972932
       },
       {
-        "text": "and",
+        "text": " and",
         "startMs": 6560,
         "endMs": 6720,
         "timestampMs": 6640,
         "confidence": 0.828506
       },
       {
-        "text": "I",
+        "text": " I",
         "startMs": 6720,
-        "endMs": 6800,
-        "timestampMs": 6760,
+        "endMs": 6820,
+        "timestampMs": 6770,
         "confidence": 0.953794
       },
       {
-        "text": "cannot",
+        "text": " cannot",
         "startMs": 6800,
         "endMs": 7080,
         "timestampMs": 6940,
         "confidence": 0.892178
       },
       {
-        "text": "write",
+        "text": " write",
         "startMs": 7080,
         "endMs": 7360,
         "timestampMs": 7220,
         "confidence": 0.89486
       },
       {
-        "text": "any",
+        "text": " any",
         "startMs": 7360,
         "endMs": 7600,
         "timestampMs": 7480,
         "confidence": 0.658698
       },
       {
-        "text": "code",
+        "text": " code",
         "startMs": 7600,
         "endMs": 8000,
         "timestampMs": 7800,
         "confidence": 0.953368
       },
       {
-        "text": "myself",
+        "text": " myself",
         "startMs": 8000,
         "endMs": 8380,
         "timestampMs": 8190,
@@ -268,49 +268,49 @@
         "confidence": 0.804846
       },
       {
-        "text": "I",
+        "text": " I",
         "startMs": 8560,
-        "endMs": 8640,
-        "timestampMs": 8600,
+        "endMs": 8660,
+        "timestampMs": 8610,
         "confidence": 0.50421
       },
       {
-        "text": "can",
+        "text": " can",
         "startMs": 8640,
         "endMs": 8960,
         "timestampMs": 8800,
         "confidence": 0.98419
       },
       {
-        "text": "only",
+        "text": " only",
         "startMs": 8960,
         "endMs": 9200,
         "timestampMs": 9080,
         "confidence": 0.990344
       },
       {
-        "text": "prompt",
+        "text": " prompt",
         "startMs": 9200,
         "endMs": 10050,
         "timestampMs": 9625,
         "confidence": 0.958841
       },
       {
-        "text": "using",
+        "text": " using",
         "startMs": 10050,
         "endMs": 10350,
         "timestampMs": 10200,
         "confidence": 0.950458
       },
       {
-        "text": "cloud",
+        "text": " cloud",
         "startMs": 10350,
         "endMs": 10700,
         "timestampMs": 10525,
         "confidence": 0.642648
       },
       {
-        "text": "code",
+        "text": " code",
         "startMs": 10700,
         "endMs": 10990,
         "timestampMs": 10845,
@@ -324,7 +324,7 @@
         "confidence": 0.954003
       },
       {
-        "text": "Cloud",
+        "text": " Cloud",
         "startMs": 11440,
         "endMs": 11760,
         "timestampMs": 11600,
@@ -338,28 +338,28 @@
         "confidence": 0.760277
       },
       {
-        "text": "please",
+        "text": " please",
         "startMs": 12320,
         "endMs": 12580,
         "timestampMs": 12450,
         "confidence": 0.980011
       },
       {
-        "text": "add",
+        "text": " add",
         "startMs": 12580,
         "endMs": 12880,
         "timestampMs": 12730,
         "confidence": 0.962748
       },
       {
-        "text": "an",
+        "text": " an",
         "startMs": 12880,
         "endMs": 13050,
         "timestampMs": 12965,
         "confidence": 0.991976
       },
       {
-        "text": "explosion",
+        "text": " explosion",
         "startMs": 13050,
         "endMs": 13990,
         "timestampMs": 13520,
@@ -382,22 +382,22 @@
       {
         "text": "ANK",
         "startMs": 16310,
-        "endMs": 16310,
-        "timestampMs": 16310,
+        "endMs": 16410,
+        "timestampMs": 16360,
         "confidence": 0.999887
       },
       {
         "text": "AUD",
         "startMs": 16310,
-        "endMs": 16310,
-        "timestampMs": 16310,
+        "endMs": 16410,
+        "timestampMs": 16360,
         "confidence": 0.99973
       },
       {
         "text": "IO",
         "startMs": 16310,
-        "endMs": 16310,
-        "timestampMs": 16310,
+        "endMs": 16410,
+        "timestampMs": 16360,
         "confidence": 0.999962
       },
       {
@@ -414,13 +414,6 @@
     "file": "IMG_6899.MOV",
     "captions": [
       {
-        "text": "Cloud",
-        "startMs": 960,
-        "endMs": 520,
-        "timestampMs": 740,
-        "confidence": 0.357113
-      },
-      {
         "text": ",",
         "startMs": 520,
         "endMs": 1090,
@@ -428,28 +421,35 @@
         "confidence": 0.776303
       },
       {
-        "text": "please",
+        "text": " Cloud",
+        "startMs": 960,
+        "endMs": 1060,
+        "timestampMs": 1010,
+        "confidence": 0.357113
+      },
+      {
+        "text": " please",
         "startMs": 1090,
         "endMs": 1360,
         "timestampMs": 1225,
         "confidence": 0.982049
       },
       {
-        "text": "add",
+        "text": " add",
         "startMs": 1360,
         "endMs": 1670,
         "timestampMs": 1515,
         "confidence": 0.983427
       },
       {
-        "text": "some",
+        "text": " some",
         "startMs": 1670,
         "endMs": 2080,
         "timestampMs": 1875,
         "confidence": 0.995203
       },
       {
-        "text": "capt",
+        "text": " capt",
         "startMs": 2080,
         "endMs": 2510,
         "timestampMs": 2295,
@@ -463,14 +463,14 @@
         "confidence": 0.999256
       },
       {
-        "text": "right",
+        "text": " right",
         "startMs": 2960,
         "endMs": 4200,
         "timestampMs": 3580,
         "confidence": 0.893453
       },
       {
-        "text": "here",
+        "text": " here",
         "startMs": 4200,
         "endMs": 5280,
         "timestampMs": 4740,
@@ -479,40 +479,40 @@
       {
         "text": ".",
         "startMs": 5280,
-        "endMs": 5300,
-        "timestampMs": 5290,
+        "endMs": 5380,
+        "timestampMs": 5330,
         "confidence": 0.796614
       },
       {
-        "text": "I",
+        "text": " I",
         "startMs": 5300,
         "endMs": 5510,
         "timestampMs": 5405,
         "confidence": 0.525383
       },
       {
-        "text": "hope",
+        "text": " hope",
         "startMs": 5510,
         "endMs": 5630,
         "timestampMs": 5570,
         "confidence": 0.998936
       },
       {
-        "text": "you",
+        "text": " you",
         "startMs": 5630,
         "endMs": 5840,
         "timestampMs": 5735,
         "confidence": 0.992085
       },
       {
-        "text": "see",
+        "text": " see",
         "startMs": 5840,
         "endMs": 6050,
         "timestampMs": 5945,
         "confidence": 0.990932
       },
       {
-        "text": "them",
+        "text": " them",
         "startMs": 6050,
         "endMs": 6330,
         "timestampMs": 6190,
@@ -526,28 +526,28 @@
         "confidence": 0.396663
       },
       {
-        "text": "That",
+        "text": " That",
         "startMs": 6560,
         "endMs": 6760,
         "timestampMs": 6660,
         "confidence": 0.962072
       },
       {
-        "text": "means",
+        "text": " means",
         "startMs": 6760,
         "endMs": 7010,
         "timestampMs": 6885,
         "confidence": 0.993229
       },
       {
-        "text": "it",
+        "text": " it",
         "startMs": 7010,
         "endMs": 7120,
         "timestampMs": 7065,
         "confidence": 0.992816
       },
       {
-        "text": "worked",
+        "text": " worked",
         "startMs": 7120,
         "endMs": 9600,
         "timestampMs": 8360,
@@ -556,8 +556,8 @@
       {
         "text": ".",
         "startMs": 9600,
-        "endMs": 9600,
-        "timestampMs": 9600,
+        "endMs": 9700,
+        "timestampMs": 9650,
         "confidence": 0.723466
       }
     ],
@@ -567,13 +567,6 @@
     "file": "IMG_6900.MOV",
     "captions": [
       {
-        "text": "Claude",
-        "startMs": 960,
-        "endMs": 670,
-        "timestampMs": 815,
-        "confidence": 0.747737
-      },
-      {
         "text": ",",
         "startMs": 670,
         "endMs": 1100,
@@ -581,70 +574,77 @@
         "confidence": 0.681384
       },
       {
-        "text": "teleport",
+        "text": " Claude",
+        "startMs": 960,
+        "endMs": 1060,
+        "timestampMs": 1010,
+        "confidence": 0.747737
+      },
+      {
+        "text": " teleport",
         "startMs": 1100,
         "endMs": 1840,
         "timestampMs": 1470,
         "confidence": 0.981833
       },
       {
-        "text": "me",
+        "text": " me",
         "startMs": 1840,
         "endMs": 2010,
         "timestampMs": 1925,
         "confidence": 0.992502
       },
       {
-        "text": "into",
+        "text": " into",
         "startMs": 2010,
         "endMs": 2450,
         "timestampMs": 2230,
         "confidence": 0.942883
       },
       {
-        "text": "the",
+        "text": " the",
         "startMs": 2450,
         "endMs": 2790,
         "timestampMs": 2620,
         "confidence": 0.98877
       },
       {
-        "text": "other",
+        "text": " other",
         "startMs": 2790,
         "endMs": 3350,
         "timestampMs": 3070,
         "confidence": 0.992989
       },
       {
-        "text": "room",
+        "text": " room",
         "startMs": 3350,
         "endMs": 3900,
         "timestampMs": 3625,
         "confidence": 0.998473
       },
       {
-        "text": "with",
+        "text": " with",
         "startMs": 3900,
         "endMs": 4040,
         "timestampMs": 3970,
         "confidence": 0.850812
       },
       {
-        "text": "a",
+        "text": " a",
         "startMs": 4040,
-        "endMs": 4090,
-        "timestampMs": 4065,
+        "endMs": 4140,
+        "timestampMs": 4090,
         "confidence": 0.988103
       },
       {
-        "text": "slight",
+        "text": " slight",
         "startMs": 4090,
         "endMs": 4390,
         "timestampMs": 4240,
         "confidence": 0.894149
       },
       {
-        "text": "transition",
+        "text": " transition",
         "startMs": 4390,
         "endMs": 4880,
         "timestampMs": 4635,
@@ -667,22 +667,22 @@
       {
         "text": "ANK",
         "startMs": 7010,
-        "endMs": 7010,
-        "timestampMs": 7010,
+        "endMs": 7110,
+        "timestampMs": 7060,
         "confidence": 1
       },
       {
         "text": "AUD",
         "startMs": 7010,
-        "endMs": 7010,
-        "timestampMs": 7010,
+        "endMs": 7110,
+        "timestampMs": 7060,
         "confidence": 1
       },
       {
         "text": "IO",
         "startMs": 7010,
-        "endMs": 7010,
-        "timestampMs": 7010,
+        "endMs": 7110,
+        "timestampMs": 7060,
         "confidence": 1
       },
       {
@@ -699,21 +699,21 @@
     "file": "IMG_6901.MOV",
     "captions": [
       {
-        "text": "Oh",
+        "text": " Oh",
         "startMs": 0,
         "endMs": 630,
         "timestampMs": 315,
         "confidence": 0.581269
       },
       {
-        "text": "my",
+        "text": " my",
         "startMs": 630,
         "endMs": 1260,
         "timestampMs": 945,
         "confidence": 0.92729
       },
       {
-        "text": "god",
+        "text": " god",
         "startMs": 1260,
         "endMs": 2210,
         "timestampMs": 1735,
@@ -727,14 +727,14 @@
         "confidence": 0.564104
       },
       {
-        "text": "it",
+        "text": " it",
         "startMs": 2840,
         "endMs": 4630,
         "timestampMs": 3735,
         "confidence": 0.985609
       },
       {
-        "text": "worked",
+        "text": " worked",
         "startMs": 4630,
         "endMs": 5370,
         "timestampMs": 5000,
@@ -748,21 +748,21 @@
         "confidence": 0.683707
       },
       {
-        "text": "AI",
+        "text": " AI",
         "startMs": 6410,
         "endMs": 6590,
         "timestampMs": 6500,
         "confidence": 0.73776
       },
       {
-        "text": "is",
+        "text": " is",
         "startMs": 6590,
         "endMs": 6800,
         "timestampMs": 6695,
         "confidence": 0.994989
       },
       {
-        "text": "amazing",
+        "text": " amazing",
         "startMs": 6800,
         "endMs": 7620,
         "timestampMs": 7210,
@@ -776,56 +776,56 @@
         "confidence": 0.290755
       },
       {
-        "text": "And",
+        "text": " And",
         "startMs": 8000,
         "endMs": 8290,
         "timestampMs": 8145,
         "confidence": 0.655732
       },
       {
-        "text": "now",
+        "text": " now",
         "startMs": 8290,
         "endMs": 8620,
         "timestampMs": 8455,
         "confidence": 0.989797
       },
       {
-        "text": "you",
+        "text": " you",
         "startMs": 8620,
         "endMs": 8870,
         "timestampMs": 8745,
         "confidence": 0.943669
       },
       {
-        "text": "can",
+        "text": " can",
         "startMs": 8870,
         "endMs": 9150,
         "timestampMs": 9010,
         "confidence": 0.995072
       },
       {
-        "text": "do",
+        "text": " do",
         "startMs": 9150,
         "endMs": 9350,
         "timestampMs": 9250,
         "confidence": 0.990089
       },
       {
-        "text": "it",
+        "text": " it",
         "startMs": 9350,
         "endMs": 9540,
         "timestampMs": 9445,
         "confidence": 0.984883
       },
       {
-        "text": "as",
+        "text": " as",
         "startMs": 9540,
         "endMs": 9700,
         "timestampMs": 9620,
         "confidence": 0.978842
       },
       {
-        "text": "well",
+        "text": " well",
         "startMs": 9700,
         "endMs": 10180,
         "timestampMs": 9940,
@@ -839,14 +839,14 @@
         "confidence": 0.619844
       },
       {
-        "text": "Use",
+        "text": " Use",
         "startMs": 10440,
         "endMs": 11040,
         "timestampMs": 10740,
         "confidence": 0.790071
       },
       {
-        "text": "n",
+        "text": " n",
         "startMs": 11040,
         "endMs": 11240,
         "timestampMs": 11140,
@@ -860,21 +860,21 @@
         "confidence": 0.98749
       },
       {
-        "text": "skills",
+        "text": " skills",
         "startMs": 11870,
         "endMs": 12000,
         "timestampMs": 11935,
         "confidence": 0.61745
       },
       {
-        "text": "install",
+        "text": " install",
         "startMs": 12000,
         "endMs": 13060,
         "timestampMs": 12530,
         "confidence": 0.508801
       },
       {
-        "text": "rem",
+        "text": " rem",
         "startMs": 13060,
         "endMs": 13350,
         "timestampMs": 13205,
@@ -890,8 +890,8 @@
       {
         "text": "-",
         "startMs": 13840,
-        "endMs": 13930,
-        "timestampMs": 13885,
+        "endMs": 13940,
+        "timestampMs": 13890,
         "confidence": 0.364553
       },
       {
@@ -911,8 +911,8 @@
       {
         "text": "sk",
         "startMs": 14420,
-        "endMs": 14500,
-        "timestampMs": 14460,
+        "endMs": 14520,
+        "timestampMs": 14470,
         "confidence": 0.949203
       },
       {
@@ -923,28 +923,28 @@
         "confidence": 0.993119
       },
       {
-        "text": "to",
+        "text": " to",
         "startMs": 14890,
         "endMs": 15310,
         "timestampMs": 15100,
         "confidence": 0.974862
       },
       {
-        "text": "install",
+        "text": " install",
         "startMs": 15310,
         "endMs": 15760,
         "timestampMs": 15535,
         "confidence": 0.996603
       },
       {
-        "text": "the",
+        "text": " the",
         "startMs": 15760,
         "endMs": 16120,
         "timestampMs": 15940,
         "confidence": 0.955928
       },
       {
-        "text": "rem",
+        "text": " rem",
         "startMs": 16120,
         "endMs": 16340,
         "timestampMs": 16230,
@@ -958,42 +958,42 @@
         "confidence": 0.991747
       },
       {
-        "text": "skills",
+        "text": " skills",
         "startMs": 16820,
         "endMs": 17420,
         "timestampMs": 17120,
         "confidence": 0.971617
       },
       {
-        "text": "for",
+        "text": " for",
         "startMs": 17420,
         "endMs": 17800,
         "timestampMs": 17610,
         "confidence": 0.981259
       },
       {
-        "text": "cloud",
+        "text": " cloud",
         "startMs": 17800,
         "endMs": 18200,
         "timestampMs": 18000,
         "confidence": 0.487367
       },
       {
-        "text": "code",
+        "text": " code",
         "startMs": 18200,
         "endMs": 18590,
         "timestampMs": 18395,
         "confidence": 0.938527
       },
       {
-        "text": "or",
+        "text": " or",
         "startMs": 18590,
         "endMs": 18780,
         "timestampMs": 18685,
         "confidence": 0.941654
       },
       {
-        "text": "cursor",
+        "text": " cursor",
         "startMs": 18780,
         "endMs": 19450,
         "timestampMs": 19115,
@@ -1002,8 +1002,8 @@
       {
         "text": ".",
         "startMs": 19450,
-        "endMs": 19480,
-        "timestampMs": 19465,
+        "endMs": 19550,
+        "timestampMs": 19500,
         "confidence": 0.887614
       },
       {
@@ -1016,22 +1016,22 @@
       {
         "text": "ANK",
         "startMs": 20940,
-        "endMs": 20940,
-        "timestampMs": 20940,
+        "endMs": 21040,
+        "timestampMs": 20990,
         "confidence": 0.999935
       },
       {
         "text": "AUD",
         "startMs": 20940,
-        "endMs": 20940,
-        "timestampMs": 20940,
+        "endMs": 21040,
+        "timestampMs": 20990,
         "confidence": 0.999741
       },
       {
         "text": "IO",
         "startMs": 20940,
-        "endMs": 20940,
-        "timestampMs": 20940,
+        "endMs": 21040,
+        "timestampMs": 20990,
         "confidence": 0.999966
       },
       {

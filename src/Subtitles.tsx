@@ -19,13 +19,15 @@ export const Subtitles: React.FC<SubtitlesProps> = ({
   const { fps } = useVideoConfig();
 
   // Adjust captions to be relative to trim start and filter out-of-range
+  // A caption is included if any part of it overlaps with the trim range
   const adjustedCaptions = useMemo(() => {
     return captions
-      .filter((c) => c.startMs >= trimStartMs && c.endMs <= trimEndMs)
+      .filter((c) => c.endMs > trimStartMs && c.startMs < trimEndMs)
       .map((c) => ({
         ...c,
-        startMs: c.startMs - trimStartMs,
-        endMs: c.endMs - trimStartMs,
+        startMs: Math.max(0, c.startMs - trimStartMs),
+        endMs: Math.min(trimEndMs - trimStartMs, c.endMs - trimStartMs),
+        timestampMs: c.timestampMs ? c.timestampMs - trimStartMs : null,
       }));
   }, [captions, trimStartMs, trimEndMs]);
 
@@ -41,7 +43,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({
 
   const currentTimeMs = (frame / fps) * 1000;
 
-  // Find the current page
+  // Find the current page based on time
   const currentPage = pages.find((page, index) => {
     const nextPage = pages[index + 1];
     const pageEndMs = nextPage
@@ -54,7 +56,7 @@ export const Subtitles: React.FC<SubtitlesProps> = ({
     return null;
   }
 
-  // Combine tokens into display text
+  // Combine tokens into display text, preserving whitespace
   const displayText = currentPage.tokens.map((t) => t.text).join("");
 
   return (
@@ -71,9 +73,11 @@ export const Subtitles: React.FC<SubtitlesProps> = ({
           fontSize: 48,
           fontWeight: "bold",
           textAlign: "center",
-          textShadow: "2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.6)",
+          textShadow:
+            "2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.6)",
           maxWidth: "80%",
           lineHeight: 1.3,
+          whiteSpace: "pre-wrap",
         }}
       >
         {displayText}

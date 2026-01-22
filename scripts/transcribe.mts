@@ -44,17 +44,22 @@ function convertWhisperToCaptions(whisperOutput: WhisperOutput): Caption[] {
   const captions: Caption[] = [];
 
   for (const segment of whisperOutput.transcription) {
-    const text = segment.text.trim();
+    const text = segment.text;
+    const trimmedText = text.trim();
     // Skip empty segments and special tokens like [BLANK_AUDIO]
-    if (!text || text.startsWith("[") || text.startsWith("_")) {
+    if (!trimmedText || trimmedText.startsWith("[") || trimmedText.startsWith("_")) {
       continue;
     }
 
+    // Fix invalid timestamps where end is before start
+    const startMs = segment.offsets.from;
+    const endMs = Math.max(segment.offsets.to, segment.offsets.from + 100);
+
     captions.push({
-      text: text,
-      startMs: segment.offsets.from,
-      endMs: segment.offsets.to,
-      timestampMs: Math.round((segment.offsets.from + segment.offsets.to) / 2),
+      text: text, // Preserve whitespace
+      startMs,
+      endMs,
+      timestampMs: Math.round((startMs + endMs) / 2),
       confidence: segment.tokens[0]?.p ?? null,
     });
   }
@@ -103,8 +108,10 @@ async function main() {
       readFileSync(`${jsonPath}.json`, "utf-8")
     );
 
-    // Convert to captions format
-    const captions = convertWhisperToCaptions(whisperOutput);
+    // Convert to captions format and sort by start time
+    const captions = convertWhisperToCaptions(whisperOutput).sort(
+      (a, b) => a.startMs - b.startMs
+    );
 
     allCaptions.push({
       file: video.file,

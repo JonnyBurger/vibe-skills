@@ -68,11 +68,10 @@ const ExtrudedSVG: React.FC = () => {
   return (
     <group scale={[scale * 0.008, -scale * 0.008, scale * 0.008]} rotation={[rotationX, rotationY, 0]}>
       <mesh geometry={geometry}>
-        <meshPhongMaterial
-          color="#ffffff"
-          specular="#ffffff"
-          shininess={100}
-          reflectivity={1}
+        <meshStandardMaterial
+          color="#c0c0c0"
+          metalness={0.9}
+          roughness={0.25}
         />
       </mesh>
     </group>
@@ -94,14 +93,14 @@ export const Remotion3DLogo: React.FC = () => {
         {/* Camera positioning */}
         <perspectiveCamera position={[0, 0, 15]} />
 
-        {/* Bright lighting for silver appearance */}
-        <ambientLight intensity={1.5} />
-        <hemisphereLight args={["#ffffff", "#444444", 1.2]} />
-        <directionalLight position={[lightX, 5, 10]} intensity={3} color="#ffffff" />
-        <directionalLight position={[-10, 5, 10]} intensity={2} color="#ffffff" />
-        <directionalLight position={[0, -5, 10]} intensity={1.5} color="#ffffff" />
-        <pointLight position={[5, 5, 5]} intensity={2} color="#ffffff" />
-        <pointLight position={[-5, 5, 5]} intensity={2} color="#ffffff" />
+        {/* Balanced lighting for metallic silver appearance */}
+        <ambientLight intensity={0.8} />
+        <hemisphereLight args={["#ffffff", "#666666", 0.8]} />
+        <directionalLight position={[lightX, 5, 10]} intensity={2} color="#ffffff" />
+        <directionalLight position={[-8, 3, 8]} intensity={1.5} color="#f0f0ff" />
+        <directionalLight position={[0, -5, 5]} intensity={0.8} color="#ffffff" />
+        <pointLight position={[5, 5, 5]} intensity={1} color="#ffffff" />
+        <pointLight position={[-5, 5, 5]} intensity={1} color="#ffffff" />
 
         {/* The 3D extruded SVG */}
         <ExtrudedSVG />

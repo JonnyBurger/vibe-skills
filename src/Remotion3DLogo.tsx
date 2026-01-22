@@ -3,6 +3,8 @@ import { useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
 import React, { useMemo } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
+import { EffectComposer, Glitch } from "@react-three/postprocessing";
+import { GlitchMode } from "postprocessing";
 
 const REMOTION_SVG = `<svg width="988" height="317" viewBox="0 0 988 317" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_9_8)">
@@ -105,6 +107,18 @@ export const Remotion3DLogo: React.FC = () => {
 
         {/* The 3D extruded SVG */}
         <ExtrudedSVG />
+
+        {/* Glitch post-processing effect */}
+        <EffectComposer>
+          <Glitch
+            delay={new THREE.Vector2(1.5, 3.5)}
+            duration={new THREE.Vector2(0.6, 1.0)}
+            strength={new THREE.Vector2(0.3, 1.0)}
+            mode={GlitchMode.SPORADIC}
+            active
+            ratio={0.85}
+          />
+        </EffectComposer>
       </ThreeCanvas>
     </div>
   );

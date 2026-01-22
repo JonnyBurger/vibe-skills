@@ -6,10 +6,12 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@react-three/postprocessing": "^3.0.4",
     "@remotion/cli": "4.0.409",
     "@remotion/media": "4.0.409",
     "@remotion/tailwind-v4": "4.0.409",
     "@remotion/three": "4.0.409",
+    "postprocessing": "^6.38.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.409",

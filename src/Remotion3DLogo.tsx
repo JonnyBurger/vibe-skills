@@ -1,10 +1,10 @@
 import { ThreeCanvas } from "@remotion/three";
 import { useCurrentFrame, useVideoConfig, interpolate, spring } from "remotion";
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useEffect } from "react";
 import * as THREE from "three";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-import { EffectComposer, Glitch } from "@react-three/postprocessing";
-import { GlitchMode } from "postprocessing";
+import { EffectComposer } from "@react-three/postprocessing";
+import { Effect } from "postprocessing";
 
 const REMOTION_SVG = `<svg width="988" height="317" viewBox="0 0 988 317" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_9_8)">
@@ -17,6 +17,124 @@ const REMOTION_SVG = `<svg width="988" height="317" viewBox="0 0 988 317" fill="
 </clipPath>
 </defs>
 </svg>`;
+
+// Deterministic glitch shader - uses frame number for reproducible results
+const glitchFragmentShader = `
+uniform float frame;
+uniform float glitchIntensity;
+uniform float glitchActive;
+
+// Deterministic hash function
+float hash(float n) {
+  return fract(sin(n) * 43758.5453123);
+}
+
+float hash2(vec2 p) {
+  return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
+void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+  vec2 coords = uv;
+  vec4 color = inputColor;
+
+  if (glitchActive > 0.5) {
+    // Deterministic random based on frame
+    float seed = floor(frame);
+    float rand1 = hash(seed);
+    float rand2 = hash(seed + 1.0);
+    float rand3 = hash(seed + 2.0);
+
+    // Horizontal displacement
+    float displaceAmount = glitchIntensity * 0.1 * (rand1 - 0.5);
+
+    // Create horizontal bands
+    float bandY = hash2(vec2(seed, floor(uv.y * 20.0)));
+    if (bandY > 0.7) {
+      coords.x += displaceAmount * (rand2 - 0.5) * 4.0;
+    }
+
+    // RGB split
+    float rgbSplit = glitchIntensity * 0.02 * rand3;
+    vec4 colorR = texture2D(inputBuffer, coords + vec2(rgbSplit, 0.0));
+    vec4 colorG = texture2D(inputBuffer, coords);
+    vec4 colorB = texture2D(inputBuffer, coords - vec2(rgbSplit, 0.0));
+
+    color = vec4(colorR.r, colorG.g, colorB.b, inputColor.a);
+
+    // Scanlines
+    float scanline = sin(uv.y * 800.0 + frame * 0.5) * 0.04 * glitchIntensity;
+    color.rgb -= scanline;
+
+    // Random color blocks
+    if (rand1 > 0.85) {
+      float blockY = floor(uv.y * 10.0);
+      float blockRand = hash(seed + blockY);
+      if (blockRand > 0.8) {
+        color.rgb = mix(color.rgb, vec3(rand2, rand3, rand1), 0.3 * glitchIntensity);
+      }
+    }
+  }
+
+  outputColor = color;
+}
+`;
+
+// Custom deterministic glitch effect
+class DeterministicGlitchEffect extends Effect {
+  constructor() {
+    super("DeterministicGlitchEffect", glitchFragmentShader, {
+      uniforms: new Map([
+        ["frame", new THREE.Uniform(0)],
+        ["glitchIntensity", new THREE.Uniform(0)],
+        ["glitchActive", new THREE.Uniform(0)],
+      ]),
+    });
+  }
+
+  setFrame(frame: number, intensity: number, active: boolean) {
+    this.uniforms.get("frame")!.value = frame;
+    this.uniforms.get("glitchIntensity")!.value = intensity;
+    this.uniforms.get("glitchActive")!.value = active ? 1.0 : 0.0;
+  }
+}
+
+// Calculate if glitch should be active at this frame
+function isGlitchActive(frame: number): { active: boolean; intensity: number } {
+  // Define glitch windows (deterministic pattern)
+  const glitchPattern = [
+    { start: 30, duration: 8, intensity: 0.8 },
+    { start: 75, duration: 5, intensity: 0.6 },
+    { start: 120, duration: 12, intensity: 1.0 },
+    { start: 180, duration: 6, intensity: 0.7 },
+    { start: 220, duration: 10, intensity: 0.9 },
+    { start: 260, duration: 4, intensity: 0.5 },
+  ];
+
+  for (const glitch of glitchPattern) {
+    if (frame >= glitch.start && frame < glitch.start + glitch.duration) {
+      // Vary intensity within the glitch window
+      const progress = (frame - glitch.start) / glitch.duration;
+      const envelope = Math.sin(progress * Math.PI); // Smooth in/out
+      return { active: true, intensity: glitch.intensity * envelope };
+    }
+  }
+
+  return { active: false, intensity: 0 };
+}
+
+// React component wrapper for the effect
+const DeterministicGlitch: React.FC<{ frame: number }> = ({ frame }) => {
+  const effectRef = useRef<DeterministicGlitchEffect>(null);
+
+  const effect = useMemo(() => new DeterministicGlitchEffect(), []);
+
+  useEffect(() => {
+    const { active, intensity } = isGlitchActive(frame);
+    effect.setFrame(frame, intensity, active);
+  }, [frame, effect]);
+
+  return <primitive ref={effectRef} object={effect} />;
+};
 
 const ExtrudedSVG: React.FC = () => {
   const frame = useCurrentFrame();
@@ -108,16 +226,9 @@ export const Remotion3DLogo: React.FC = () => {
         {/* The 3D extruded SVG */}
         <ExtrudedSVG />
 
-        {/* Glitch post-processing effect */}
+        {/* Deterministic glitch post-processing effect */}
         <EffectComposer>
-          <Glitch
-            delay={new THREE.Vector2(1.5, 3.5)}
-            duration={new THREE.Vector2(0.6, 1.0)}
-            strength={new THREE.Vector2(0.3, 1.0)}
-            mode={GlitchMode.SPORADIC}
-            active
-            ratio={0.85}
-          />
+          <DeterministicGlitch frame={frame} />
         </EffectComposer>
       </ThreeCanvas>
     </div>

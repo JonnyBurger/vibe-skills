@@ -19,8 +19,8 @@ export const RemotionRoot: React.FC = () => {
         component={RemotionTweet}
         durationInFrames={240}
         fps={30}
-        width={1298}
-        height={1874}
+        width={1338}
+        height={1914}
       />
     </>
   );

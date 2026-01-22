@@ -1,0 +1,91 @@
+1
+00:00:00,000 --> 00:00:01,680
+video was edited only using
+
+2
+00:00:01,680 --> 00:00:03,090
+Clawed code.
+
+3
+00:00:03,090 --> 00:00:04,650
+are simple.
+
+4
+00:00:04,650 --> 00:00:06,560
+I need to edit the video using Remotion
+
+5
+00:00:06,560 --> 00:00:08,560
+and I cannot write any code myself.
+
+6
+00:00:08,560 --> 00:00:10,350
+I can only prompt using
+
+7
+00:00:10,350 --> 00:00:12,320
+cloud code. Cloud,
+
+8
+00:00:12,320 --> 00:00:13,590
+please add an explosion
+
+9
+00:00:13,590 --> 00:00:15,600
+, Cloud please add some captions
+
+10
+00:00:15,600 --> 00:00:17,940
+right here.
+
+11
+00:00:17,940 --> 00:00:19,650
+I hope you see them. That means
+
+12
+00:00:19,650 --> 00:00:20,260
+it worked
+
+13
+00:00:20,260 --> 00:00:21,810
+, Claude teleport me into
+
+14
+00:00:21,810 --> 00:00:23,400
+the other room with
+
+15
+00:00:23,400 --> 00:00:24,630
+a slight transition.
+
+16
+00:00:24,630 --> 00:00:26,550
+it worked!
+
+17
+00:00:26,550 --> 00:00:28,140
+AI is amazing.
+
+18
+00:00:28,140 --> 00:00:29,680
+And now you can do it
+
+19
+00:00:29,680 --> 00:00:32,010
+as well. Use npx
+
+20
+00:00:32,010 --> 00:00:35,030
+skills install remotion-dev/skills
+
+21
+00:00:35,030 --> 00:00:36,960
+to install the remotion
+
+22
+00:00:36,960 --> 00:00:38,730
+skills for cloud code
+
+23
+00:00:38,730 --> 00:00:39,370
+or cursor

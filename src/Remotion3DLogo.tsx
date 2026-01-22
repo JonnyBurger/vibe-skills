@@ -209,8 +209,13 @@ export const Remotion3DLogo: React.FC = () => {
   });
 
   return (
-    <div style={{ backgroundColor: "#0a0a1a" }}>
-      <ThreeCanvas width={width} height={height}>
+    <div style={{ backgroundColor: "transparent" }}>
+      <ThreeCanvas
+        width={width}
+        height={height}
+        gl={{ alpha: true, preserveDrawingBuffer: true }}
+        style={{ background: "transparent" }}
+      >
         {/* Camera positioning */}
         <perspectiveCamera position={[0, 0, 15]} />
 

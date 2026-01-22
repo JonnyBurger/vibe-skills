@@ -1,7 +1,10 @@
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Video } from "@remotion/media";
+import { visualControl } from "@remotion/studio";
 
 export const RemotionTweet: React.FC = () => {
+  const top = visualControl("video-top", 446);
+
   return (
     <AbsoluteFill>
       <Img
@@ -15,7 +18,7 @@ export const RemotionTweet: React.FC = () => {
         src={staticFile("skills-video.mp4")}
         style={{
           position: "absolute",
-          top: 446,
+          top,
           left: 24,
           width: 1131,
           height: 733,

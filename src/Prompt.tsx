@@ -1,4 +1,11 @@
-import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import {
+  AbsoluteFill,
+  Easing,
+  interpolate,
+  spring,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import { Thinking } from "./Thinking";
 
 const TYPING_DURATION_SECONDS = 2;
@@ -9,7 +16,7 @@ const FONT_SIZE = 38;
 const CHAR_WIDTH = 23; // approximate monospace character width at 38px
 const BOX_WIDTH = 1300;
 const CONTENT_WIDTH = BOX_WIDTH - 56 * 2; // width minus horizontal padding
-const LINE_HEIGHT = 50;
+const LINE_HEIGHT = 54;
 const POSTERIZE_FRAMES = 3;
 
 export type PromptProps = {
@@ -49,7 +56,10 @@ export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
   const typingFrames = TYPING_DURATION_SECONDS * fps;
   const framesPerChar = typingFrames / title.length;
   const typingFrame = Math.max(0, frame - delayFrames);
-  const typedChars = Math.min(title.length, Math.floor(typingFrame / framesPerChar));
+  const typedChars = Math.min(
+    title.length,
+    Math.floor(typingFrame / framesPerChar),
+  );
   const typedText = title.slice(0, typedChars);
   const isTypingComplete = typedChars >= title.length;
 
@@ -59,7 +69,11 @@ export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
     frame,
     [typingEndFrame, typingEndFrame + thinkingFadeFrames],
     [0, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.ease) }
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.in(Easing.ease),
+    },
   );
 
   const enterProgress = spring({

@@ -5,6 +5,9 @@ import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
 import { Prompt, PromptProps } from "./Prompt";
+import { FlyingCards } from "./FlyingCards";
+import { FlyingCardsLeft } from "./FlyingCardsLeft";
+import { FlyingCardBottom } from "./FlyingCardBottom";
 import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
@@ -19,7 +22,7 @@ const calculatePromptMetadata: CalculateMetadataFunction<PromptProps> = ({
   props,
 }) => {
   return {
-    defaultOutName: `prompt-${props.thinkingIndex}.mov`,
+    defaultOutName: `prompt-${props.thinkingIndex}`,
     defaultCodec: "prores",
     defaultPixelFormat: "yuva444p10le",
     defaultProResProfile: "4444",
@@ -100,15 +103,39 @@ export const RemotionRoot: React.FC = () => {
       <Composition<PromptProps>
         id="Prompt"
         component={Prompt}
-        durationInFrames={150}
+        durationInFrames={210}
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
-          title: "Create a video of a cat playing piano",
-          thinkingIndex: 0,
+          title: "edit my video!!",
+          thinkingIndex: 40,
         }}
         calculateMetadata={calculatePromptMetadata}
+      />
+      <Composition
+        id="FlyingCards"
+        component={FlyingCards}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FlyingCardsLeft"
+        component={FlyingCardsLeft}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FlyingCardBottom"
+        component={FlyingCardBottom}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
       />
     </>
   );

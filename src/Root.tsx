@@ -4,15 +4,28 @@ import { MyComposition } from "./Composition";
 import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
+import { Prompt, PromptProps } from "./Prompt";
 import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
   { file: "IMG_6896.MOV", trimStart: 1.14, trimEnd: 4.23 },
   { file: "IMG_6898.MOV", trimStart: 3.09, trimEnd: 13.59 },
   { file: "IMG_6899.MOV", trimStart: 0.95, trimEnd: 7.62 },
-  { file: "IMG_6900.MOV", trimStart: 0.90, trimEnd: 5.27 },
+  { file: "IMG_6900.MOV", trimStart: 0.9, trimEnd: 5.27 },
   { file: "IMG_6901.MOV", trimStart: 4.49, trimEnd: 19.23 },
 ];
+
+const calculatePromptMetadata: CalculateMetadataFunction<PromptProps> = ({
+  props,
+}) => {
+  return {
+    defaultOutName: `prompt-${props.thinkingIndex}.mov`,
+    defaultCodec: "prores",
+    defaultPixelFormat: "yuva444p10le",
+    defaultProResProfile: "4444",
+    defaultVideoImageFormat: "png",
+  };
+};
 
 const calculateVideoSequenceMetadata: CalculateMetadataFunction<
   VideoSequenceProps
@@ -22,7 +35,7 @@ const calculateVideoSequenceMetadata: CalculateMetadataFunction<
   const videos = VIDEO_DATA.map((data) => {
     const trimmedDuration = data.trimEnd - data.trimStart;
     const videoCaptions = captionsData.find(
-      (c: { file: string }) => c.file === data.file
+      (c: { file: string }) => c.file === data.file,
     );
 
     return {
@@ -38,7 +51,7 @@ const calculateVideoSequenceMetadata: CalculateMetadataFunction<
 
   const totalDurationInFrames = videos.reduce(
     (sum, video) => sum + video.durationInFrames,
-    0
+    0,
   );
 
   return {
@@ -83,6 +96,19 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         defaultProps={{ videos: [] }}
         calculateMetadata={calculateVideoSequenceMetadata}
+      />
+      <Composition<PromptProps>
+        id="Prompt"
+        component={Prompt}
+        durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "Create a video of a cat playing piano",
+          thinkingIndex: 0,
+        }}
+        calculateMetadata={calculatePromptMetadata}
       />
     </>
   );

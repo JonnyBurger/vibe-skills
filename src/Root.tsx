@@ -1,28 +1,29 @@
 import "./index.css";
-import { Composition, CalculateMetadataFunction } from "remotion";
+import { Composition, CalculateMetadataFunction, staticFile } from "remotion";
 import { MyComposition } from "./Composition";
 import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
-import { getVideoMetadata } from "@remotion/media";
+import { getMediaMetadata } from "./get-media-metadata";
 
-const VIDEO_SOURCES = [
-  "/Users/jonathanburger/Downloads/IMG_6898.MOV",
-  "/Users/jonathanburger/Downloads/IMG_6899.MOV",
-  "/Users/jonathanburger/Downloads/IMG_6901.MOV",
-  "/Users/jonathanburger/Downloads/IMG_6900.MOV",
-  "/Users/jonathanburger/Downloads/IMG_6896.MOV",
+const VIDEO_FILES = [
+  "IMG_6898.MOV",
+  "IMG_6899.MOV",
+  "IMG_6901.MOV",
+  "IMG_6900.MOV",
+  "IMG_6896.MOV",
 ];
 
 const calculateVideoSequenceMetadata: CalculateMetadataFunction<
   VideoSequenceProps
 > = async () => {
   const fps = 30;
-  const metadataPromises = VIDEO_SOURCES.map((src) => getVideoMetadata(src));
+  const videoSources = VIDEO_FILES.map((file) => staticFile(file));
+  const metadataPromises = videoSources.map((src) => getMediaMetadata(src));
   const allMetadata = await Promise.all(metadataPromises);
 
   const videos = allMetadata.map((meta, index) => ({
-    src: VIDEO_SOURCES[index],
+    src: videoSources[index],
     durationInFrames: Math.ceil(meta.durationInSeconds * fps),
   }));
 

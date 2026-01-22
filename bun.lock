@@ -6,7 +6,9 @@
       "name": "vibe-skills",
       "dependencies": {
         "@react-three/postprocessing": "^3.0.4",
+        "@remotion/captions": "4.0.409",
         "@remotion/cli": "4.0.409",
+        "@remotion/install-whisper-cpp": "4.0.409",
         "@remotion/media": "4.0.409",
         "@remotion/tailwind-v4": "4.0.409",
         "@remotion/three": "4.0.409",
@@ -220,6 +222,8 @@
 
     "@remotion/bundler": ["@remotion/bundler@4.0.409", "", { "dependencies": { "@remotion/media-parser": "4.0.409", "@remotion/studio": "4.0.409", "@remotion/studio-shared": "4.0.409", "css-loader": "5.2.7", "esbuild": "0.25.0", "react-refresh": "0.9.0", "remotion": "4.0.409", "source-map": "0.7.3", "style-loader": "4.0.0", "webpack": "5.96.1" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" } }, "sha512-BSmpf3ooe1+pSIVDwd/LKlMbzboQHUDkToLZiPoDAsdbfjE45zZyVmEYKSiwx1kfPShr+zjnTv85CSdN85BsXQ=="],
 
+    "@remotion/captions": ["@remotion/captions@4.0.409", "", {}, "sha512-yT/DDRHbbkYCPVRub+hoRCiWi9xQqCVjlV0LfYvxN8B9T9YDi2aF2pBCg+6jhkCJ+bgTIO5yNviinZbc87rqdg=="],
+
     "@remotion/cli": ["@remotion/cli@4.0.409", "", { "dependencies": { "@remotion/bundler": "4.0.409", "@remotion/media-utils": "4.0.409", "@remotion/player": "4.0.409", "@remotion/renderer": "4.0.409", "@remotion/studio": "4.0.409", "@remotion/studio-server": "4.0.409", "@remotion/studio-shared": "4.0.409", "dotenv": "9.0.2", "minimist": "1.2.6", "prompts": "2.4.2", "remotion": "4.0.409" }, "peerDependencies": { "react": ">=16.8.0", "react-dom": ">=16.8.0" }, "bin": { "remotion": "remotion-cli.js", "remotionb": "remotionb-cli.js", "remotiond": "remotiond-cli.js" } }, "sha512-6shfH9NviUQs9Z+lPRJZhkhXIekWU1h+Lbaxwr3Hdal14rWOh5YJro9Z8/9WCqAg9p4tNEOD2kTEQocT6QKQVg=="],
 
     "@remotion/compositor-darwin-arm64": ["@remotion/compositor-darwin-arm64@4.0.409", "", { "os": "darwin", "cpu": "arm64" }, "sha512-XNMW6MNTDeKY0Dbe7hPeryotHVLQXz8bIfgOM9AWOcVfMMoQQZiKQMyL3F5eqsBlqgWEBlz95UsO8/cOLShNvA=="],
@@ -237,6 +241,8 @@
     "@remotion/compositor-win32-x64-msvc": ["@remotion/compositor-win32-x64-msvc@4.0.409", "", { "os": "win32", "cpu": "x64" }, "sha512-74gj/vgMJ1Bkp7eZLQ5Hy+Bwae5FksfzgmtuRGWS/cT5683NfUN7PdOejAZvTzYgKitR+pVd5QL8eQo4ZY5yRA=="],
 
     "@remotion/eslint-config-flat": ["@remotion/eslint-config-flat@4.0.409", "", { "dependencies": { "typescript-eslint": "8.21.0" }, "peerDependencies": { "eslint": ">=9" } }, "sha512-rX18odbCKTNZsBEswTkloiuktlezGc73H31Bt/ftoibYq13iZpEAhCTCRwPsJdKubNmEBFtwh1Hbkx/qzzPIOg=="],
+
+    "@remotion/install-whisper-cpp": ["@remotion/install-whisper-cpp@4.0.409", "", { "dependencies": { "@remotion/captions": "4.0.409" } }, "sha512-CtS3LEVytfr28fgsFFh0t3kP3kRuyXngaT8tBLFeZG4XNih7VNPHo6ELicuOa8YcKwzDnGCpKpgZgIxSexEV3g=="],
 
     "@remotion/licensing": ["@remotion/licensing@4.0.409", "", {}, "sha512-lo9S78ngigQzuZnEtyLrUz7DDxDYXoaDQK+4bUVl9PKBdxJXrAyrzaEb+qv/ooKY8GaoOLU409yKyJYfAiUBDg=="],
 

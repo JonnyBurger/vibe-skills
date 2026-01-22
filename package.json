@@ -7,7 +7,9 @@
   "private": true,
   "dependencies": {
     "@react-three/postprocessing": "^3.0.4",
+    "@remotion/captions": "4.0.409",
     "@remotion/cli": "4.0.409",
+    "@remotion/install-whisper-cpp": "4.0.409",
     "@remotion/media": "4.0.409",
     "@remotion/tailwind-v4": "4.0.409",
     "@remotion/three": "4.0.409",

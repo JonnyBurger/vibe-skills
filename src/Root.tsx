@@ -4,6 +4,7 @@ import { MyComposition } from "./Composition";
 import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
+import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
   { file: "IMG_6896.MOV", trimStart: 1.14, trimEnd: 4.23 },
@@ -20,11 +21,18 @@ const calculateVideoSequenceMetadata: CalculateMetadataFunction<
 
   const videos = VIDEO_DATA.map((data) => {
     const trimmedDuration = data.trimEnd - data.trimStart;
+    const videoCaptions = captionsData.find(
+      (c: { file: string }) => c.file === data.file
+    );
+
     return {
       src: staticFile(data.file),
       durationInFrames: Math.ceil(trimmedDuration * fps),
       trimStartFrame: Math.floor(data.trimStart * fps),
       trimEndFrame: Math.floor(data.trimEnd * fps),
+      trimStartMs: data.trimStart * 1000,
+      trimEndMs: data.trimEnd * 1000,
+      captions: videoCaptions?.captions ?? [],
     };
   });
 

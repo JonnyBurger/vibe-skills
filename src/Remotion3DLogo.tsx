@@ -46,9 +46,10 @@ const ExtrudedSVG: React.FC = () => {
   }, []);
 
   // Animated rotation driven by useCurrentFrame()
-  const rotationY = interpolate(frame, [0, 300], [0, Math.PI * 2], {
-    extrapolateRight: "extend",
-  });
+  // Rotate from -90 to 90 degrees, then reset
+  const cycleLength = 150;
+  const frameInCycle = frame % cycleLength;
+  const rotationY = interpolate(frameInCycle, [0, cycleLength], [-Math.PI / 2, Math.PI / 2]);
 
   const rotationX = interpolate(frame, [0, 200], [-0.2, 0.2], {
     extrapolateRight: "clamp",

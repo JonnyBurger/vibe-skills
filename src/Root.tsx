@@ -6,11 +6,11 @@ import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
 
 const VIDEO_DATA = [
-  { file: "IMG_6898.MOV", trimStart: 3.24, trimEnd: 13.44 },
-  { file: "IMG_6899.MOV", trimStart: 1.10, trimEnd: 7.47 },
-  { file: "IMG_6901.MOV", trimStart: 4.64, trimEnd: 19.08 },
-  { file: "IMG_6900.MOV", trimStart: 1.05, trimEnd: 5.12 },
-  { file: "IMG_6896.MOV", trimStart: 1.29, trimEnd: 4.08 },
+  { file: "IMG_6896.MOV", trimStart: 1.14, trimEnd: 4.23 },
+  { file: "IMG_6898.MOV", trimStart: 3.09, trimEnd: 13.59 },
+  { file: "IMG_6899.MOV", trimStart: 0.95, trimEnd: 7.62 },
+  { file: "IMG_6900.MOV", trimStart: 0.90, trimEnd: 5.27 },
+  { file: "IMG_6901.MOV", trimStart: 4.49, trimEnd: 19.23 },
 ];
 
 const calculateVideoSequenceMetadata: CalculateMetadataFunction<

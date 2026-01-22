@@ -19,7 +19,7 @@ export const RemotionTweet: React.FC = () => {
           left: 24,
           width: 1131,
           height: 443,
-          objectFit: "cover",
+          objectFit: "contain",
           borderRadius: 12,
         }}
       />

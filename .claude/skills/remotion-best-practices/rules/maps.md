@@ -242,6 +242,8 @@ useEffect(() => {
     }),
   );
 
+  const camera = map.getFreeCameraOptions();
+
   const alongRoute = turf.along(
     turf.lineString(lineCoordinates),
     routeDistance * progress,
@@ -260,6 +262,7 @@ useEffect(() => {
 Notes:
 
 - Keep the camera by default so north is up.
+- Ensure the camera does not jump around, keep the camera animation continuous.
 - The progress is clamped to a minimum value to avoid the line being empty, which can lead to turf errors
 - See [Timing](./timing.md) for more options for timing.
 - Consider the dimensions of the composition and make the lines thick enough and the label font size large enough to be legible for when the composition is scaled down.

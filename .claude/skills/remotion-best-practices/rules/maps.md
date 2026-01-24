@@ -259,6 +259,7 @@ useEffect(() => {
 
 Notes:
 
+- Keep the camera by default so north is up.
 - The progress is clamped to a minimum value to avoid the line being empty, which can lead to turf errors
 - See [Timing](./timing.md) for more options for timing.
 - Consider the dimensions of the composition and make the lines thick enough and the label font size large enough to be legible for when the composition is scaled down.
@@ -379,7 +380,12 @@ _map.addLayer({
 
 Make sure they are big enough. Check the composition dimensions and scale the labels accordingly.
 For a composition size of 1920x1080, the label font size should be at least 40px.
-Keep the text offset small enough so it is close to the marker. Consider the marker circle radius. For a circle radius of 12, the `text-offset` should be `[0, 0.5]`.
+
+Keep the text offset small enough so it is close to the marker. Consider the marker circle radius. For a circle radius of 12, this is a good offset:
+
+```tsx
+"text-offset": [0, 0.5],
+```
 
 ## Rendering
 

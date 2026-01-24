@@ -9,6 +9,8 @@ import { Prompt, PromptSchema } from "./Prompt";
 import { FlyingCards } from "./FlyingCards";
 import { FlyingCardsLeft } from "./FlyingCardsLeft";
 import { FlyingCardBottom } from "./FlyingCardBottom";
+import { LAtoNYMap } from "./LAtoNYMap";
+import { GoldenGateFlyover } from "./GoldenGateFlyover";
 import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
@@ -135,6 +137,22 @@ export const RemotionRoot: React.FC = () => {
         id="FlyingCardBottom"
         component={FlyingCardBottom}
         durationInFrames={150}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="LAtoNYMap"
+        component={LAtoNYMap}
+        durationInFrames={300}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="GoldenGateFlyover"
+        component={GoldenGateFlyover}
+        durationInFrames={240}
         fps={30}
         width={1920}
         height={1080}

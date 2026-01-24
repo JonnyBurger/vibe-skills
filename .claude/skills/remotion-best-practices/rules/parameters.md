@@ -11,11 +11,28 @@ First, `zod` must be installed - it must be exactly version `3.22.2`.
 
 Search the project for lockfiles and run the correct command depending on the package manager:
 
+If `package-lock.json` is found, use the following command:
+
 ```bash
-npm i zod@3.22.2 # If project uses npm
-bun i zod@3.22.2 # If project uses bun
-yarn add zod@3.22.2 # If project uses yarn
-pnpm i zod@3.22.2 # If project uses pnpm
+npm i zod@3.22.2
+```
+
+If `bun.lockb` is found, use the following command:
+
+```bash
+bun i zod@3.22.2
+```
+
+If `yarn.lock` is found, use the following command:
+
+```bash
+yarn add zod@3.22.2
+```
+
+If `pnpm-lock.yaml` is found, use the following command:
+
+```bash
+pnpm i zod@3.22.2
 ```
 
 Then, a Zod schema can be defined alongside the component:

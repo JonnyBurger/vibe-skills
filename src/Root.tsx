@@ -4,7 +4,8 @@ import { MyComposition } from "./Composition";
 import { RemotionTweet } from "./RemotionTweet";
 import { Remotion3DLogo } from "./Remotion3DLogo";
 import { VideoSequence, VideoSequenceProps } from "./VideoSequence";
-import { Prompt, PromptProps } from "./Prompt";
+import { z } from "zod";
+import { Prompt, PromptSchema } from "./Prompt";
 import { FlyingCards } from "./FlyingCards";
 import { FlyingCardsLeft } from "./FlyingCardsLeft";
 import { FlyingCardBottom } from "./FlyingCardBottom";
@@ -18,9 +19,9 @@ const VIDEO_DATA = [
   { file: "IMG_6901.MOV", trimStart: 4.49, trimEnd: 19.23 },
 ];
 
-const calculatePromptMetadata: CalculateMetadataFunction<PromptProps> = ({
-  props,
-}) => {
+const calculatePromptMetadata: CalculateMetadataFunction<
+  z.infer<typeof PromptSchema>
+> = ({ props }) => {
   return {
     defaultOutName: `prompt-${props.thinkingIndex}`,
     defaultCodec: "prores",
@@ -100,15 +101,16 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{ videos: [] }}
         calculateMetadata={calculateVideoSequenceMetadata}
       />
-      <Composition<PromptProps>
+      <Composition
         id="Prompt"
         component={Prompt}
         durationInFrames={210}
         fps={30}
         width={1920}
         height={1080}
+        schema={PromptSchema}
         defaultProps={{
-          title: "edit my video!!",
+          prompt: "edit my video!!",
           thinkingIndex: 40,
         }}
         calculateMetadata={calculatePromptMetadata}

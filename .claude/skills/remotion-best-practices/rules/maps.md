@@ -348,3 +348,17 @@ if (source) {
   source.setData(slicedLine);
 }
 ```
+
+## Labels
+
+Add labels where appropriate.  
+Make sure they are big enough. Check the composition dimensions and scale the labels accordingly.
+For a composition size of 1920x1080, the label font size should be at least 50px.
+
+## Rendering
+
+When rendering a map animation, make sure to render with the following flags:
+
+```
+npx remotion render --gl=angle --concurrency=1
+```

@@ -210,6 +210,8 @@ _map.setConfigProperty("basemap", "colorTrunks", "transparent");
 
 You can animate the camera along the line by adding a `useEffect` hook that updates the camera position based on the current frame.
 
+Unless I ask for it, do not jump between camera angles.
+
 ```tsx
 import * as turf from "@turf/turf";
 import { interpolate } from "remotion";
@@ -245,18 +247,12 @@ useEffect(() => {
     routeDistance * progress,
   ).geometry.coordinates;
 
-  const lineBearing = turf.bearing(
-    turf.point(lineCoordinates[0]),
-    turf.point(lineCoordinates[1]),
-  );
-
-  const perpendicularBearing = lineBearing - 180;
   const cameraDistance = 3; // km
 
   const cameraPosition = turf.destination(
     turf.point([alongRoute[0], alongRoute[1]]),
     cameraDistance,
-    perpendicularBearing,
+    180,
   ).geometry.coordinates;
 
   const camera = map.getFreeCameraOptions();
@@ -387,7 +383,7 @@ _map.addLayer({
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["DIN Pro Bold", "Arial Unicode MS Bold"],
-    "text-size": 50,
+    "text-size": 20,
     "text-offset": [0, 0.2],
     "text-anchor": "top",
   },

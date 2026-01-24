@@ -247,24 +247,6 @@ useEffect(() => {
     routeDistance * progress,
   ).geometry.coordinates;
 
-  const cameraDistance = 3; // km
-
-  const cameraPosition = turf.destination(
-    turf.point([alongRoute[0], alongRoute[1]]),
-    cameraDistance,
-    180,
-  ).geometry.coordinates;
-
-  const camera = map.getFreeCameraOptions();
-
-  camera.position = MercatorCoordinate.fromLngLat(
-    {
-      lng: cameraPosition[0],
-      lat: cameraPosition[1],
-    },
-    cameraAltitude,
-  );
-
   camera.lookAtPoint({
     lng: alongRoute[0],
     lat: alongRoute[1],
@@ -384,7 +366,7 @@ _map.addLayer({
     "text-field": ["get", "name"],
     "text-font": ["DIN Pro Bold", "Arial Unicode MS Bold"],
     "text-size": 20,
-    "text-offset": [0, 0.2],
+    "text-offset": [0, 0.5],
     "text-anchor": "top",
   },
   paint: {
@@ -397,6 +379,7 @@ _map.addLayer({
 
 Make sure they are big enough. Check the composition dimensions and scale the labels accordingly.
 For a composition size of 1920x1080, the label font size should be at least 40px.
+Keep the text offset small enough so it is close to the marker. Consider the marker circle radius. For a circle radius of 12, the `text-offset` should be `[0, 0.5]`.
 
 ## Rendering
 

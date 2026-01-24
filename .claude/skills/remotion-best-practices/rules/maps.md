@@ -112,9 +112,9 @@ export const MyComposition = () => {
         _map.setConfigProperty("basemap", feature, false);
       }
 
-      _map.setConfigProperty("basemap", "colorMotorways", "transparent");
-      _map.setConfigProperty("basemap", "colorRoads", "transparent");
-      _map.setConfigProperty("basemap", "colorTrunks", "transparent");
+      _map.setConfigProperty("basemap", "colorMotorways", "rgba(0, 0, 0, 0)");
+      _map.setConfigProperty("basemap", "colorRoads", "rgba(0, 0, 0, 0)");
+      _map.setConfigProperty("basemap", "colorTrunks", "rgba(0, 0, 0, 0)");
 
       _map.addSource("trace", {
         type: "geojson",
@@ -389,6 +389,16 @@ IMPORTANT: Keep the `text-offset` small enough so it is close to the marker. Con
 
 ```tsx
 "text-offset": [0, 0.5],
+```
+
+## 3D buildings
+
+To enable 3D buildings, use the following code:
+
+```tsx
+_map.setConfigProperty("basemap", "show3dObjects", true);
+_map.setConfigProperty("basemap", "show3dLandmarks", true);
+_map.setConfigProperty("basemap", "show3dBuildings", true);
 ```
 
 ## Rendering

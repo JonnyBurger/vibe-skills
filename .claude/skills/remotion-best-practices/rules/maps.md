@@ -349,11 +349,58 @@ if (source) {
 }
 ```
 
-## Labels
+## Markers
 
-Add labels where appropriate.  
+Add labels, and markers where appropriate.
+
+```tsx
+_map.addSource("markers", {
+  type: "geojson",
+  data: {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        properties: { name: "Point 1" },
+        geometry: { type: "Point", coordinates: LA_COORDS },
+      },
+    ],
+  },
+});
+
+_map.addLayer({
+  id: "city-markers",
+  type: "circle",
+  source: "cities",
+  paint: {
+    "circle-radius": 40,
+    "circle-color": "#FF4444",
+    "circle-stroke-width": 4,
+    "circle-stroke-color": "#FFFFFF",
+  },
+});
+
+_map.addLayer({
+  id: "labels",
+  type: "symbol",
+  source: "cities",
+  layout: {
+    "text-field": ["get", "name"],
+    "text-font": ["DIN Pro Bold", "Arial Unicode MS Bold"],
+    "text-size": 50,
+    "text-offset": [0, 0.2],
+    "text-anchor": "top",
+  },
+  paint: {
+    "text-color": "#FFFFFF",
+    "text-halo-color": "#000000",
+    "text-halo-width": 2,
+  },
+});
+```
+
 Make sure they are big enough. Check the composition dimensions and scale the labels accordingly.
-For a composition size of 1920x1080, the label font size should be at least 50px.
+For a composition size of 1920x1080, the label font size should be at least 40px.
 
 ## Rendering
 

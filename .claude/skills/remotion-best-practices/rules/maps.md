@@ -262,7 +262,7 @@ useEffect(() => {
 Notes:
 
 IMPORTANT: Keep the camera by default so north is up.
-IMPORTANT: For multi-step animations, set all properties at all stages (zoom, position, line progress) to prevent jumps.
+IMPORTANT: For multi-step animations, set all properties at all stages (zoom, position, line progress) to prevent jumps. Override initial values.
 
 - The progress is clamped to a minimum value to avoid the line being empty, which can lead to turf errors
 - See [Timing](./timing.md) for more options for timing.

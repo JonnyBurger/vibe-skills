@@ -261,8 +261,9 @@ useEffect(() => {
 
 Notes:
 
-- Keep the camera by default so north is up.
-- Ensure the camera does not jump around, keep the camera animation continuous.
+IMPORTANT: Keep the camera by default so north is up.
+IMPORTANT: For multi-step animations, set all properties at all stages (zoom, position, line progress) to prevent jumps.
+
 - The progress is clamped to a minimum value to avoid the line being empty, which can lead to turf errors
 - See [Timing](./timing.md) for more options for timing.
 - Consider the dimensions of the composition and make the lines thick enough and the label font size large enough to be legible for when the composition is scaled down.
@@ -369,7 +370,7 @@ _map.addLayer({
   layout: {
     "text-field": ["get", "name"],
     "text-font": ["DIN Pro Bold", "Arial Unicode MS Bold"],
-    "text-size": 20,
+    "text-size": 50,
     "text-offset": [0, 0.5],
     "text-anchor": "top",
   },
@@ -384,7 +385,7 @@ _map.addLayer({
 Make sure they are big enough. Check the composition dimensions and scale the labels accordingly.
 For a composition size of 1920x1080, the label font size should be at least 40px.
 
-Keep the text offset small enough so it is close to the marker. Consider the marker circle radius. For a circle radius of 12, this is a good offset:
+IMPORTANT: Keep the `text-offset` small enough so it is close to the marker. Consider the marker circle radius. For a circle radius of 40, this is a good offset:
 
 ```tsx
 "text-offset": [0, 0.5],

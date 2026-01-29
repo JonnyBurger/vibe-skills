@@ -11,7 +11,6 @@ import { FlyingCardsLeft } from "./FlyingCardsLeft";
 import { FlyingCardBottom } from "./FlyingCardBottom";
 import { LAtoNYMap } from "./LAtoNYMap";
 import { GoldenGateFlyover } from "./GoldenGateFlyover";
-import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
   { file: "IMG_6896.MOV", trimStart: 1.14, trimEnd: 4.23 },

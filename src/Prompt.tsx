@@ -6,6 +6,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { z } from "zod";
 import { Thinking } from "./Thinking";
 
 const TYPING_DURATION_SECONDS = 2;
@@ -19,10 +20,12 @@ const CONTENT_WIDTH = BOX_WIDTH - 56 * 2; // width minus horizontal padding
 const LINE_HEIGHT = 54;
 const POSTERIZE_FRAMES = 3;
 
-export type PromptProps = {
-  title: string;
-  thinkingIndex: number;
-};
+export const PromptSchema = z.object({
+  prompt: z.string().describe("The prompt text to display with typing animation"),
+  thinkingIndex: z.number().describe("Index for the thinking animation variant"),
+});
+
+export type PromptProps = z.infer<typeof PromptSchema>;
 
 const Cursor: React.FC<{ frame: number }> = ({ frame }) => {
   const opacity = interpolate(
@@ -47,21 +50,20 @@ const Cursor: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
+export const Prompt: React.FC<PromptProps> = ({ prompt, thinkingIndex }) => {
   const rawFrame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const frame = Math.floor(rawFrame / POSTERIZE_FRAMES) * POSTERIZE_FRAMES;
 
   const delayFrames = TYPING_DELAY_SECONDS * fps;
   const typingFrames = TYPING_DURATION_SECONDS * fps;
-  const framesPerChar = typingFrames / title.length;
+  const framesPerChar = typingFrames / prompt.length;
   const typingFrame = Math.max(0, frame - delayFrames);
   const typedChars = Math.min(
-    title.length,
+    prompt.length,
     Math.floor(typingFrame / framesPerChar),
   );
-  const typedText = title.slice(0, typedChars);
-  const isTypingComplete = typedChars >= title.length;
+  const typedText = prompt.slice(0, typedChars);
 
   const typingEndFrame = delayFrames + typingFrames;
   const thinkingFadeFrames = THINKING_FADE_SECONDS * fps;
@@ -86,8 +88,8 @@ export const Prompt: React.FC<PromptProps> = ({ title, thinkingIndex }) => {
   const translateY = interpolate(enterProgress, [0, 1], [400, 0]);
   const scale = interpolate(enterProgress, [0, 1], [0.9, 1]);
 
-  // Calculate height based on full title (so it doesn't change while typing)
-  const fullTextWithPrefix = "❯ " + title;
+  // Calculate height based on full prompt (so it doesn't change while typing)
+  const fullTextWithPrefix = "❯ " + prompt;
   const charsPerLine = Math.floor(CONTENT_WIDTH / CHAR_WIDTH);
   const numLines = Math.ceil(fullTextWithPrefix.length / charsPerLine);
   const textHeight = numLines * LINE_HEIGHT;

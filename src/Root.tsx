@@ -8,7 +8,6 @@ import { Prompt, PromptProps } from "./Prompt";
 import { FlyingCards } from "./FlyingCards";
 import { FlyingCardsLeft } from "./FlyingCardsLeft";
 import { FlyingCardBottom } from "./FlyingCardBottom";
-import captionsData from "./captions/captions.json";
 
 const VIDEO_DATA = [
   { file: "IMG_6896.MOV", trimStart: 1.14, trimEnd: 4.23 },
@@ -37,9 +36,6 @@ const calculateVideoSequenceMetadata: CalculateMetadataFunction<
 
   const videos = VIDEO_DATA.map((data) => {
     const trimmedDuration = data.trimEnd - data.trimStart;
-    const videoCaptions = captionsData.find(
-      (c: { file: string }) => c.file === data.file,
-    );
 
     return {
       src: staticFile(data.file),
@@ -48,7 +44,6 @@ const calculateVideoSequenceMetadata: CalculateMetadataFunction<
       trimEndFrame: Math.floor(data.trimEnd * fps),
       trimStartMs: data.trimStart * 1000,
       trimEndMs: data.trimEnd * 1000,
-      captions: videoCaptions?.captions ?? [],
     };
   });
 
